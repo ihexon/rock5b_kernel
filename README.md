@@ -1,6 +1,7 @@
 # rock5b_kernel
 Rock5B prebuild kernel with enhanced feature
 
+## v1.1
 
 - Open Security options to support eBPF trace code
 ```
@@ -17,6 +18,7 @@ CONFIG_SECURITY_PATH=y
 CONFIG_HAVE_HARDENED_USERCOPY_ALLOCATOR=y
 ```
 
+## v1.0
 - Add nf_table framework and bridge_netfilter which needed by docker
 ```
 CONFIG_NF_CONNTRACK_BRIDGE=m

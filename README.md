@@ -1,5 +1,21 @@
 # rock5b_kernel
 Rock5B prebuild kernel with enhanced feature
 
+
+- Open Security options to support eBPF trace code
+```
+CONFIG_KEYS=y
+CONFIG_TRUSTED_KEYS=m
+CONFIG_ENCRYPTED_KEYS=m
+CONFIG_KEY_DH_OPERATIONS=y
+CONFIG_SECURITY_DMESG_RESTRICT=y
+CONFIG_SECURITY=y
+CONFIG_SECURITYFS=y
+CONFIG_SECURITY_NETWORK=y
+CONFIG_SECURITY_NETWORK_XFRM=y
+CONFIG_SECURITY_PATH=y
+CONFIG_HAVE_HARDENED_USERCOPY_ALLOCATOR=y
+```
+
 - add nf_table framework
 - bridge_netfilter

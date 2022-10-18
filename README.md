@@ -2,6 +2,13 @@
 Rock5B prebuild kernel with enhanced feature
 
 ## v1.1
+- Support some USB Realtek rtlwifi
+```
+$ sha1sum *
+8ba5579f60c3a94ee2e07ba6cbdd61f3c7462d05  88XXau.ko
+47ecc0e56d35dab0569482d367507048ed602dfa  8188gu.ko
+90557aa6ea01616ca0731ce7a90ed41876fba0b8  8821cu.ko
+```
 
 - Open Security options to support eBPF trace code
 ```

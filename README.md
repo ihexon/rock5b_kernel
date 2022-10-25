@@ -1,6 +1,45 @@
 # rock5b_kernel
 Rock5B prebuild kernel with enhanced feature
 
+## v1.2
+Debian zramswap issue:
+```
+ihexon@rock-5b ~> sudo systemctl status zramswap.service
+● zramswap.service - Linux zramswap setup
+     Loaded: loaded (/lib/systemd/system/zramswap.service; enabled; vendor preset: enabled)
+     Active: failed (Result: exit-code) since Mon 2022-10-24 14:33:42 UTC; 14s ago
+       Docs: man:zramswap(8)
+    Process: 2663107 ExecStart=/usr/sbin/zramswap start (code=exited, status=1/FAILURE)
+   Main PID: 2663107 (code=exited, status=1/FAILURE)
+        CPU: 182ms
+
+Oct 24 14:33:42 rock-5b systemd[1]: Starting Linux zramswap setup...
+Oct 24 14:33:42 rock-5b root[2663108]: Starting Zram
+Oct 24 14:33:42 rock-5b zramswap[2663108]: <13>Oct 24 14:33:42 root: Starting Zram
+Oct 24 14:33:42 rock-5b zramswap[2663110]: modprobe: FATAL: Module zram not found in directory /lib/modules/5.10.66-ge5e04a04b2bf
+Oct 24 14:33:42 rock-5b root[2663111]: Error: inserting the zram kernel module
+Oct 24 14:33:42 rock-5b zramswap[2663111]: <13>Oct 24 14:33:42 root: Error: inserting the zram kernel module
+Oct 24 14:33:42 rock-5b systemd[1]: zramswap.service: Main process exited, code=exited, status=1/FAILURE
+Oct 24 14:33:42 rock-5b systemd[1]: zramswap.service: Failed with result 'exit-code'.
+Oct 24 14:33:42 rock-5b systemd[1]: Failed to start Linux zramswap setup.
+```
+
+Fixed by making zram as kernel modules, add `CONFIG_ZRAM_WRITEBACK=y` and `CONFIG_ZRAM_MEMORY_TRACKING=y`
+
+
+- Support some USB Realtek rtlwifi
+
+```
+$ sha1sum *
+1b750807031c322df163da1cfd16b288d13d7f32  88XXau.ko
+ef86fd2a60adb4acd6e1f73ae96012e2b6230edb  8188gu.ko
+da6377ae7a1c65c1c4fae4303668c575efeeae68  8821cu.ko
+```
+- Support some v4l2loopback
+```
+bd887c74cd68ca026ff4258e212ca93aff74c126  v4l2loopback.ko
+```
+
 ## v1.1
 - Support some USB Realtek rtlwifi
 ```
